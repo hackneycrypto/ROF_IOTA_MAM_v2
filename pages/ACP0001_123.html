@@ -1,0 +1,354 @@
+<html>
+<head>
+    <title>Provenance @ Revolution of Forms</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.typekit.net/ler4uih.css” /> 
+</head>
+    
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script>
+    function isChecked(checkbox, sub1) {
+        document.getElementById(sub1).disabled = !checkbox.checked;
+    }
+    function languageToggle() {
+          var x = document.getElementById("confirmText");
+          var y = document.getElementById("confirmDate1"); 
+          var langES = document.getElementById("ES");  
+          var langEN = document.getElementById("EN");     
+          var conId = document.getElementById("contactUs");
+          var subId = document.getElementById("sub1");
+          var orderId = document.getElementById("orderNo");  
+          var tblHead1 = document.getElementById("tblHeading1");
+          var tblHead2 = document.getElementById("tblHeading2");
+          var tblHead3 = document.getElementById("tblHeading3");
+          if (tblHead1.innerHTML === "Item Name") {
+            x.innerHTML = "<strong>Confirmo que la información anterior es correcta y que todos los artículos han sido recibidos:</strong>";
+            y.innerHTML = "<strong>Confirme la fecha en que se completaron los artículos:</strong>";
+            conId.innerHTML = "Si hay algún error, <strong>no lo envíe, por favor</strong>. Contáctenos en hello@revolutionofforms.co";
+            subId.innerHTML = "Enviar";
+            orderId.innerHTML = "<strong>Número de orden ACP0001</strong>";
+            langEN.innerHTML = "EN"; langES.innerHTML = "<strong>ES</strong>";
+            tblHead1.innerHTML = "Nombre del árticulo";
+            tblHead2.innerHTML = "Cantidad";
+            tblHead3.innerHTML = "Artesano";
+            tblHead4.innerHTML = "Comunidad";            
+          } else {
+            x.innerHTML = "<strong>I confirm the above information is correct and that all items have been received:</strong>";
+            y.innerHTML = "<strong>Confirm Date the above items where completed:</strong>";
+            conId.innerHTML = "If there are any errors <strong>please do not submit</strong> and contact us at hello@revolutionofforms.co";
+            subId.innerHTML = "Submit";
+            orderId.innerHTML = "<strong>Order Number ACP0001</strong>";
+            langES.innerHTML = "ES"; langEN.innerHTML = "<strong>EN</strong>";
+            tblHead1.innerHTML = "Item Name";
+            tblHead2.innerHTML = "Quantity";
+            tblHead3.innerHTML = "Artisan";
+            tblHead4.innerHTML = "Community"; 
+          } 
+     }
+</script>
+<div class="jumbotron text-center">
+    <img src="/images/ROF_logo_wht_withcircle.png" width="200" height="200" alt="ROF Logo" />
+</div>
+<div>  
+     <p id="orderNo"><strong>Número de orden ACP0001</strong></p>     
+     <form name="theForm" action="/ACP0001_123" method="post" >
+        <input type="hidden" name="reqOrderNo" id="reqOrderNo" value="ACP0001" readonly> 
+        <input type="hidden" name="seed" id="seed" value="">
+        <input type="hidden" name="verByROF" id="verByROF" size=30px value="Revolution of Forms" text-align="center" readonly>
+        <input type="hidden" name="locROF" id="locROF" size=30px value="London, England" text-align="center" readonly>
+        <input type="hidden" name="verByBrand" id="verByBrand" size=30px value="AC Palma" text-align="center" readonly>
+        <input type="hidden" name="locBrand" id="locBrand" size=30px value="Mexico City, Mexico" text-align="center" readonly>
+        <input type="hidden" name="statusROF" id="statusROF" size=30px value="Order Initiated:" text-align="center">
+        <input type="hidden" name="statusArt" id="statusArt" size=30px value="Items Completed" text-align="center">
+        <input type="hidden" name="statusBrand" id="statusBrand" size=30px value="Order Finalised:" text-align="center">
+        <table>
+            <tr>
+            <th id="tblHeading1">Nombre del árticulo</th>
+            <th id="tblHeading2">Cantidad</th>
+            <th id="tblHeading3">Artesano</th>
+            <th id="tblHeading4">Comunidad</th>
+            </tr>
+            <tr>
+            <td><input type="text" name="item1" id="item1" value="Basurero Chico Natural" hidden/>Basurero Chico Natural</td>
+            <td><input type="text" name="quant1" id="quant1" value="3" hidden/>3</td>
+            <td><input type="text" name="art1" id="art1" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com1" id="com1" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item2" id="item2" value="Basurero Chico Natural y Negro" hidden/>Basurero Chico Natural y Negro</td>
+            <td><input type="text" name="quant2" id="quant2" value="3" hidden/>3</td>
+            <td><input type="text" name="art2" id="art2" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com2" id="com2" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item3" id="item3" value="Basurero Grande Natural" hidden/>Basurero Grande Natural</td>
+            <td><input type="text" name="quant3" id="quant3" value="3" hidden/>3</td>
+            <td><input type="text" name="art3" id="art3" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com3" id="com3" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item4" id="item4" value="Basurero Grande Natural y Negro" hidden/>Basurero Grande Natural y Negro</td>
+            <td><input type="text" name="quant4" id="quant4" value="3" hidden/>3</td>
+            <td><input type="text" name="art4" id="art4" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com4" id="com4" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item5" id="item5" value="Caja Chica Natural" hidden/>Caja Chica Natural</td>
+            <td><input type="text" name="quant5" id="quant5" value="4" hidden/>4</td>
+            <td><input type="text" name="art5" id="art5" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com5" id="com5" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item6" id="item6" value="Caja chica natural y negra" hidden/>Caja chica natural y negra</td>
+            <td><input type="text" name="quant6" id="quant6" value="4" hidden/>4</td>
+            <td><input type="text" name="art6" id="art6" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com6" id="com6" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item7" id="item7" value="Caja Mediana natural" hidden/>Caja Mediana natural</td>
+            <td><input type="text" name="quant7" id="quant7" value="4" hidden/>4</td>
+            <td><input type="text" name="art7" id="art7" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com7" id="com7" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item8" id="item8" value="caja mediama N&N" hidden/>caja mediama N&N</td>
+            <td><input type="text" name="quant8" id="quant8" value="4" hidden/>4</td>
+            <td><input type="text" name="art8" id="art8" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com8" id="com8" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item9" id="item9" value="Caja grande natural" hidden/>Caja grande natural</td>
+            <td><input type="text" name="quant9" id="quant9" value="4" hidden/>4</td>
+            <td><input type="text" name="art9" id="art9" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com9" id="com9" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item10" id="item10" value="Caja grande N&N" hidden/>Caja grande N&N</td>
+            <td><input type="text" name="quant10" id="quant10" value="4" hidden/>4</td>
+            <td><input type="text" name="art10" id="art10" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com10" id="com10" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item11" id="item11" value="caja vino natural" hidden/>caja vino natural</td>
+            <td><input type="text" name="quant11" id="quant11" value="4" hidden/>4</td>
+            <td><input type="text" name="art11" id="art11" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com11" id="com11" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item12" id="item12" value="caja vino N&N" hidden/>caja vino N&N</td>
+            <td><input type="text" name="quant12" id="quant12" value="4" hidden/>4</td>
+            <td><input type="text" name="art12" id="art12" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com12" id="com12" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item13" id="item13" value="porta papel de bano natural" hidden/>porta papel de bano natural</td>
+            <td><input type="text" name="quant13" id="quant13" value="4" hidden/>4</td>
+            <td><input type="text" name="art13" id="art13" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com13" id="com13" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item14" id="item14" value="porta papel de bano n&n" hidden/>porta papel de bano n&n</td>
+            <td><input type="text" name="quant14" id="quant14" value="4" hidden/>4</td>
+            <td><input type="text" name="art14" id="art14" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com14" id="com14" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item15" id="item15" value="Individual cuadrado" hidden/>Individual cuadrado</td>
+            <td><input type="text" name="quant15" id="quant15" value="20" hidden/>20</td>
+            <td><input type="text" name="art15" id="art15" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com15" id="com15" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item16" id="item16" value="Individual cuadrado n&n" hidden/>Individual cuadrado n&n</td>
+            <td><input type="text" name="quant16" id="quant16" value="20" hidden/>20</td>
+            <td><input type="text" name="art16" id="art16" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com16" id="com16" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item17" id="item17" value="Individual rectangular" hidden/>Individual rectangular</td>
+            <td><input type="text" name="quant17" id="quant17" value="20" hidden/>20</td>
+            <td><input type="text" name="art17" id="art17" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com17" id="com17" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item18" id="item18" value="Individual rectangular n&n" hidden/>Individual rectangular n&n</td>
+            <td><input type="text" name="quant18" id="quant18" value="20" hidden/>20</td>
+            <td><input type="text" name="art18" id="art18" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com18" id="com18" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item19" id="item19" value="individual redondo" hidden/>individual redondo</td>
+            <td><input type="text" name="quant19" id="quant19" value="20" hidden/>20</td>
+            <td><input type="text" name="art19" id="art19" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com19" id="com19" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item20" id="item20" value="individual redondo n&n" hidden/>individual redondo n&n</td>
+            <td><input type="text" name="quant20" id="quant20" value="20" hidden/>20</td>
+            <td><input type="text" name="art20" id="art20" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com20" id="com20" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item21" id="item21" value="Plato comal y Panera palma natural y verde/" hidden/>Plato comal y Panera palma natural y verde/</td>
+            <td><input type="text" name="quant21" id="quant21" value="2" hidden/>2</td>
+            <td><input type="text" name="art21" id="art21" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com21" id="com21" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item22" id="item22" value="Plato comal y Panera palma natural y negro y verde" hidden/>Plato comal y Panera palma natural y negro y verde</td>
+            <td><input type="text" name="quant22" id="quant22" value="2" hidden/>2</td>
+            <td><input type="text" name="art22" id="art22" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com22" id="com22" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item23" id="item23" value="porta helado 500" hidden/>porta helado 500</td>
+            <td><input type="text" name="quant23" id="quant23" value="4" hidden/>4</td>
+            <td><input type="text" name="art23" id="art23" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com23" id="com23" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item24" id="item24" value="porta helado 500 n&n" hidden/>porta helado 500 n&n</td>
+            <td><input type="text" name="quant24" id="quant24" value="4" hidden/>4</td>
+            <td><input type="text" name="art24" id="art24" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com24" id="com24" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item25" id="item25" value="porta helado 1l" hidden/>porta helado 1l</td>
+            <td><input type="text" name="quant25" id="quant25" value="4" hidden/>4</td>
+            <td><input type="text" name="art25" id="art25" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com25" id="com25" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item26" id="item26" value="porta helado 1l n&n" hidden/>porta helado 1l n&n</td>
+            <td><input type="text" name="quant26" id="quant26" value="4" hidden/>4</td>
+            <td><input type="text" name="art26" id="art26" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com26" id="com26" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item27" id="item27" value="Porta vasos natural" hidden/>Porta vasos natural</td>
+            <td><input type="text" name="quant27" id="quant27" value="20" hidden/>20</td>
+            <td><input type="text" name="art27" id="art27" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com27" id="com27" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item28" id="item28" value="servilletero 8n sferas" hidden/>servilletero 8n sferas</td>
+            <td><input type="text" name="quant28" id="quant28" value="20" hidden/>20</td>
+            <td><input type="text" name="art28" id="art28" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com28" id="com28" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item29" id="item29" value="servilletero 8n sferas n&n" hidden/>servilletero 8n sferas n&n</td>
+            <td><input type="text" name="quant29" id="quant29" value="20" hidden/>20</td>
+            <td><input type="text" name="art29" id="art29" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com29" id="com29" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item30" id="item30" value="Tortillero 1 kilo n&n" hidden/>Tortillero 1 kilo n&n</td>
+            <td><input type="text" name="quant30" id="quant30" value="4" hidden/>4</td>
+            <td><input type="text" name="art30" id="art30" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com30" id="com30" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item31" id="item31" value="canasta chica" hidden/>canasta chica</td>
+            <td><input type="text" name="quant31" id="quant31" value="3" hidden/>3</td>
+            <td><input type="text" name="art31" id="art31" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com31" id="com31" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item32" id="item32" value="canasta chica n&n" hidden/>canasta chica n&n</td>
+            <td><input type="text" name="quant32" id="quant32" value="3" hidden/>3</td>
+            <td><input type="text" name="art32" id="art32" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com32" id="com32" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item33" id="item33" value="canasta mediana" hidden/>canasta mediana</td>
+            <td><input type="text" name="quant33" id="quant33" value="3" hidden/>3</td>
+            <td><input type="text" name="art33" id="art33" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com33" id="com33" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item32" id="item32" value="canasta chica n&n" hidden/>canasta chica n&n</td>
+            <td><input type="text" name="quant32" id="quant32" value="3" hidden/>3</td>
+            <td><input type="text" name="art32" id="art32" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com32" id="com32" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item33" id="item33" value="canasta mediana" hidden/>canasta mediana</td>
+            <td><input type="text" name="quant33" id="quant33" value="3" hidden/>3</td>
+            <td><input type="text" name="art33" id="art33" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com33" id="com33" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item34" id="item34" value="canasta mediana n&n" hidden/>canasta mediana n&n</td>
+            <td><input type="text" name="quant34" id="quant34" value="3" hidden/>3</td>
+            <td><input type="text" name="art34" id="art34" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com34" id="com34" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item35" id="item35" value="charola fierro chica" hidden/>charola fierro chica</td>
+            <td><input type="text" name="quant35" id="quant35" value="3" hidden/>3</td>
+            <td><input type="text" name="art35" id="art35" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com35" id="com35" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item36" id="item36" value="lazo con pompon" hidden/>lazo con pompon</td>
+            <td><input type="text" name="quant36" id="quant36" value="30" hidden/>30</td>
+            <td><input type="text" name="art36" id="art36" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com36" id="com36" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item37" id="item37" value="caja esfera natural" hidden/>caja esfera natural</td>
+            <td><input type="text" name="quant37" id="quant37" value="5" hidden/>5</td>
+            <td><input type="text" name="art37" id="art37" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com37" id="com37" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item38" id="item38" value="Caja esfera n&n" hidden/>Caja esfera n&n</td>
+            <td><input type="text" name="quant38" id="quant38" value="5" hidden/>5</td>
+            <td><input type="text" name="art38" id="art38" value="Tlamacazapa Community" hidden/>Tlamacazapa Community</td>
+            <td><input type="text" name="com38" id="com38" value="Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico" hidden/>Tlamacazapa, Taxco de Alarcon, Guerrero, Mexico</td>
+            </tr>
+            </table>
+        <br>
+        <p id="confirmDate1" style="font-weight: normal;"><strong>Confirme la fecha en que se completaron los artículos:</strong></p> 
+        <input type="date" name="date1" id="date1" text-align="center" min="2018-01-01" max="2020-12-31" autofocus required>
+        <br>
+        <hr>
+        <br>
+          <p id="confirmText" style="font-weight: normal;"><strong>Confirmo que la información anterior es correcta y que todos los artículos han sido recibidos:</strong></p>
+          <input type="checkbox" id="termsChkbx " onchange="isChecked(this, 'sub1')" >
+          <input type="submit" value="Submit" id="sub1" disabled="disabled" >
+          <br>
+          <hr>
+          <p id="contactUs" >Si hay algún error, <strong>no lo envíe, por favor</strong>. Contáctenos en hello@revolutionofforms.co</p>
+    </form>
+    <table class="hiddenTable">
+      <tr>
+        <td class="hiddenTd" id="ES" name="ES" width="20px"><strong>ES</strong></td>
+        <td class="hiddenTd" width="20px"><label class="switch" onchange="languageToggle()">
+          <input type="checkbox" unchecked>
+          <span class="slider round"></span>
+          </label></td>
+        <td class="hiddenTd" id="EN" name="EN" width="20px">EN</td>
+      </tr>  
+    </table>    
+      <br>
+      <br>
+</div>
+</body>
+
+</html>
+
+
+
+
+    
+
+
+
+
+

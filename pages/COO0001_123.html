@@ -1,0 +1,203 @@
+<html>
+<head>
+    <title>Provenance @ Revolution of Forms</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.typekit.net/ler4uih.css” /> 
+</head>
+    
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script>
+    function isChecked(checkbox, sub1) {
+        document.getElementById(sub1).disabled = !checkbox.checked;
+    }
+    function languageToggle() {
+          var x = document.getElementById("confirmText");
+          var y = document.getElementById("confirmDate1");
+          var langES = document.getElementById("ES");  
+          var langEN = document.getElementById("EN");         
+          var conId = document.getElementById("contactUs");
+          var subId = document.getElementById("sub1");
+          var orderId = document.getElementById("orderNo");  
+          var tblHead1 = document.getElementById("tblHeading1");
+          var tblHead2 = document.getElementById("tblHeading2");
+          var tblHead3 = document.getElementById("tblHeading3");
+          var tblHead4 = document.getElementById("tblHeading4");
+          if (tblHead1.innerHTML === "Item Name") {
+            x.innerHTML = "<strong>Confirmo que la información anterior es correcta y que todos los artículos han sido recibidos:</strong>";
+            y.innerHTML = "<strong>Confirmar fecha de pedido:</strong>";
+            conId.innerHTML = "Si hay algún error, <strong>no lo envíe, por favor</strong>. Contáctenos en hello@revolutionofforms.co";
+            subId.innerHTML = "Enviar";
+            orderId.innerHTML = "<strong>Número de orden LAG0001</strong>";
+            langEN.innerHTML = "EN"; langES.innerHTML = "<strong>ES</strong>";
+            tblHead1.innerHTML = "Nombre del árticulo";
+            tblHead2.innerHTML = "Cantidad";
+            tblHead3.innerHTML = "Artesano";
+            tblHead4.innerHTML = "Comunidad";            
+          } else {
+            x.innerHTML = "<strong>I confirm the above information is correct and that all items have been received:</strong>";
+            y.innerHTML = "<strong>Confirm Date the order was placed:</strong>";
+            conId.innerHTML = "If there are any errors <strong>please do not submit</strong> and contact us at hello@revolutionofforms.co";
+            subId.innerHTML = "Submit";
+            orderId.innerHTML = "<strong>Order Number LAG0001</strong>";
+            langES.innerHTML = "ES"; langEN.innerHTML = "<strong>EN</strong>";
+            tblHead1.innerHTML = "Item Name";
+            tblHead2.innerHTML = "Quantity";
+            tblHead3.innerHTML = "Artisan";
+            tblHead4.innerHTML = "Community"; 
+          } 
+     }
+</script>
+<div class="jumbotron text-center">
+    <img src="../public/images/ROF_logo_wht_withcircle.jpg" width="200" height="200" alt="ROF Logo" />
+</div>
+<div>  
+     <p id="orderNo"><strong>Número de orden Change LAG0001</strong></p>     
+     <form name="theForm" action="/COL0001_123" method="post" >
+        <input type="hidden" name="reqOrderNo" id="reqOrderNo" value="LAG0001" readonly> 
+        <input type="hidden" name="seed" id="seed" value="">
+        <input type="hidden" name="verByROF" id="verByROF" size=30px value="Revolution of Forms" text-align="center" readonly>
+        <input type="hidden" name="locROF" id="locROF" size=30px value="London, England" text-align="center" readonly>
+        <input type="hidden" name="verByBrand" id="verByBrand" size=30px value="Lagos de Mundo" text-align="center" readonly>
+        <input type="hidden" name="locBrand" id="locBrand" size=30px value="Mexico City, Mexico" text-align="center" readonly>
+        <input type="hidden" name="statusROF" id="statusROF" size=30px value="Order Initiated:" text-align="center">
+        <input type="hidden" name="statusArt" id="statusArt" size=30px value="Items Completed:" text-align="center">
+        <input type="hidden" name="statusBrand" id="statusBrand" size=30px value="Order Finalised:" text-align="center">
+        <input type="hidden" name="statusROFReceived" id="statusROFReceived" size=30px value="Order Received:" text-align="center">
+        <table>
+          <tr>
+            <th id="tblHeading1">Nombre del árticulo</th>
+            <th id="tblHeading2">Cantidad</th>
+            <th id="tblHeading3">Artesano</th>
+            <th id="tblHeading4">Comunidad</th>
+            </tr>
+            <tr>
+            <td><input type="text" name="item1" id="item1" value="Ch’ail Jug" hidden/>Ch’ail Jug</td>
+            <td><input type="text" name="quant1" id="quant1" value="2" hidden/>2</td>
+            <td><input type="text" name="art1" id="art1" value="Amatenango del Valle Artisans" hidden/>Amatenango del Valle Artisans</td>
+            <td><input type="text" name="com1" id="com1" value="Amatenango del Valle, Chiapas" hidden/>Amatenango del Valle, Chiapas</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item2" id="item2" value="Ch’ail Cup" hidden/>Ch’ail Cup</td>
+            <td><input type="text" name="quant2" id="quant2" value="2" hidden/>2</td>
+            <td><input type="text" name="art2" id="art2" value="Amatenango del Valle Artisans" hidden/>Amatenango del Valle Artisans</td>
+            <td><input type="text" name="com2" id="com2" value="Amatenango del Valle, Chiapas" hidden/>Amatenango del Valle, Chiapas</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item3" id="item3" value="Zandunga Mezcal Cup (BLUE)" hidden/>Zandunga Mezcal Cup (BLUE)</td>
+            <td><input type="text" name="quant3" id="quant3" value="16" hidden/>16</td>
+            <td><input type="text" name="art3" id="art3" value="Santa Maria Atzompa Artisans" hidden/>Santa Maria Atzompa Artisans</td>
+            <td><input type="text" name="com3" id="com3" value="Santa Maria Atzompa, Oaxaca" hidden/>Santa Maria Atzompa, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item4" id="item4" value="Zandunga Mezcal Cup (GREY)" hidden/>Zandunga Mezcal Cup (GREY)</td>
+            <td><input type="text" name="quant4" id="quant4" value="16" hidden/>16</td>
+            <td><input type="text" name="art4" id="art4" value="Santa Maria Atzompa Artisans" hidden/>Santa Maria Atzompa Artisans</td>
+            <td><input type="text" name="com4" id="com4" value="Santa Maria Atzompa, Oaxaca" hidden/>Santa Maria Atzompa, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item5" id="item5" value="Zandunga Mezcal Cup (PINK)" hidden/>Zandunga Mezcal Cup (PINK)</td>
+            <td><input type="text" name="quant5" id="quant5" value="16" hidden/>16</td>
+            <td><input type="text" name="art5" id="art5" value="Santa Maria Atzompa Artisans" hidden/>Santa Maria Atzompa Artisans</td>
+            <td><input type="text" name="com5" id="com5" value="Santa Maria Atzompa, Oaxaca" hidden/>Santa Maria Atzompa, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item6" id="item6" value="Zandunga Mezcal Cup (GREEN)" hidden/>Zandunga Mezcal Cup (GREEN)</td>
+            <td><input type="text" name="quant6" id="quant6" value="16" hidden/>16</td>
+            <td><input type="text" name="art6" id="art6" value="Santa Maria Atzompa Artisans" hidden/>Santa Maria Atzompa Artisans</td>
+            <td><input type="text" name="com6" id="com6" value="Santa Maria Atzompa, Oaxaca" hidden/>Santa Maria Atzompa, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item7" id="item7" value="Domingo Fruit Bowl" hidden/>Domingo Fruit Bowl</td>
+            <td><input type="text" name="quant7" id="quant7" value="2" hidden/>2</td>
+            <td><input type="text" name="art7" id="art7" value="San Bartolo Coyotepec Artisans" hidden/>San Bartolo Coyotepec Artisans</td>
+            <td><input type="text" name="com7" id="com7" value="San Bartolo Coyotepec, Oaxaca" hidden/>San Bartolo Coyotepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item8" id="item8" value="Ramona Fruit Bowl" hidden/>Ramona Fruit Bowl</td>
+            <td><input type="text" name="quant8" id="quant8" value="2" hidden/>2</td>
+            <td><input type="text" name="art8" id="art8" value="San Bartolo Coyotepec Artisans" hidden/>San Bartolo Coyotepec Artisans</td>
+            <td><input type="text" name="com8" id="com8" value="San Bartolo Coyotepec, Oaxaca" hidden/>San Bartolo Coyotepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item9" id="item9" value="Bartola Jug (23.5 oz - 5x5x6.2 in)" hidden/>Bartola Jug (23.5 oz - 5x5x6.2 in)</td>
+            <td><input type="text" name="quant9" id="quant9" value="2" hidden/>2</td>
+            <td><input type="text" name="art9" id="art9" value="San Bartolo Coyotepec Artisans" hidden/>San Bartolo Coyotepec Artisans</td>
+            <td><input type="text name=com9" id="com9" value="San Bartolo Coyotepec, Oaxaca" hidden/>San Bartolo Coyotepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item10" id="item10" value="Bartola Jug (74 oz - 7x7x8.5 in)" hidden/>Bartola Jug (74 oz - 7x7x8.5 in)</td>
+            <td><input type="text" name="quant10" id="quant10" value="2" hidden/>2</td>
+            <td><input type="text" name="art10" id="art10" value="San Bartolo Coyotepec Artisans" hidden/>San Bartolo Coyotepec Artisans</td>
+            <td><input type="text" name="com10" id="com10" value="San Bartolo Coyotepec, Oaxaca" hidden/>San Bartolo Coyotepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item11" id="item11" value="Nabora Plate (4 in)" hidden/>Nabora Plate (4 in)</td>
+            <td><input type="text" name="quant11" id="quant11" value="4" hidden/>4</td>
+            <td><input type="text" name="art11" id="art11" value="Santo Domingo Tonaltepec Artisans" hidden/>Santo Domingo Tonaltepec Artisans</td>
+            <td><input type="text" name="com11" id="com11" value="Santo Domingo Tonaltepec, Oaxaca" hidden/>Santo Domingo Tonaltepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item12" id="item12" value="Cirilo Bowl  (10 oz - 6x6x3 in)" hidden/>Cirilo Bowl  (10 oz - 6x6x3 in)</td>
+            <td><input type="text" name="quant12" id="quant12" value="4" hidden/>4</td>
+            <td><input type="text" name="art12" id="art12" value="Santo Domingo Tonaltepec Artisans" hidden/>Santo Domingo Tonaltepec Artisans</td>
+            <td><input type="text" name="com12" id="com12" value="Santo Domingo Tonaltepec, Oaxaca" hidden/>Santo Domingo Tonaltepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item13" id="item13" value="Little Hand (small)" hidden/>Little Hand (small)</td>
+            <td><input type="text" name="quant13" id="quant13" value="4" hidden/>4</td>
+            <td><input type="text" name="art13" id="art13" value="Santo Domingo Tonaltepec Artisans" hidden/>Santo Domingo Tonaltepec Artisans</td>
+            <td><input type="text" name="com13" id="com13" value="Santo Domingo Tonaltepec, Oaxaca" hidden/>Santo Domingo Tonaltepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item14" id="item14" value="Animalia saltshaker (Includes cork lid)" hidden/>Animalia saltshaker (Includes cork lid)</td>
+            <td><input type="text" name="quant14" id="quant14" value="4" hidden/>4</td>
+            <td><input type="text" name="art14" id="art14" value="Santo Domingo Tonaltepec Artisans" hidden/>Santo Domingo Tonaltepec Artisans</td>
+            <td><input type="text" name="com14" id="com14" value="Santo Domingo Tonaltepec, Oaxaca" hidden/>Santo Domingo Tonaltepec, Oaxaca</td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item15" id="item15" value="Micaela Short (10x10x6 in approx)" hidden/>Micaela Short (10x10x6 in approx)</td>
+            <td><input type="text" name="quant15" id="quant15" value="2" hidden/>2</td>
+            <td><input type="text" name="art15" id="art15" value="San Marcos Tlapazola Artisans" hidden/>San Marcos Tlapazola Artisans</td>
+            <td><input type="text" name="com15" id="com15" value="San Marcos, Tlapazola, Oaxaca " hidden/>San Marcos, Tlapazola, Oaxaca </td>
+            </tr>
+            <tr>
+            <td><input type="text" name="item16" id="item16" value="Micaela Bean (8x8x12 in approx)" hidden/>Micaela Bean (8x8x12 in approx)</td>
+            <td><input type="text" name="quant16" id="quant16" value="2" hidden/>2</td>
+            <td><input type="text" name="art16" id="art16" value="San Marcos Tlapazola Artisans" hidden/>San Marcos Tlapazola Artisans</td>
+            <td><input type="text" name="com16" id="com16" value="San Marcos, Tlapazola, Oaxaca " hidden/>San Marcos, Tlapazola, Oaxaca </td>
+            </tr>
+        </table>
+        <br>
+        <p id="confirmDate1" style="font-weight: normal;"><strong>Confirmar fecha de pedido:</strong></p> 
+        <input type="date" name="date1" id="date1" text-align="center" min="2018-01-01" max="2020-12-31" autofocus required>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <p id="confirmText" style="font-weight: normal;"><strong>Confirmo que la información anterior es correcta y que todos los artículos han sido recibidos:</strong></p>
+        <input type="checkbox" id="termsChkbx " onchange="isChecked(this, 'sub1')" >
+        <input type="submit" value="Submit" id="sub1" disabled="disabled" >
+        <br>
+        <hr>
+        <p id="contactUs" >Si hay algún error, <strong>no lo envíe, por favor</strong>. Contáctenos en hello@revolutionofforms.co</p>
+    </form>
+    <table class="hiddenTable">
+      <tr>
+        <td class="hiddenTd" id="ES" name="ES" width="20px"><strong>ES</strong></td>
+        <td class="hiddenTd" width="20px"><label class="switch" onchange="languageToggle()">
+          <input type="checkbox" unchecked>
+          <span class="slider round"></span>
+          </label></td>
+        <td class="hiddenTd" id="EN" name="EN" width="20px">EN</td>
+      </tr>  
+    </table>    
+      <br>
+      <br>
+</div>
+</body>
+
+</html>
