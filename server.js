@@ -34,23 +34,14 @@ app.get('/Order_COO0001', function(req, res) {
   res.sendFile(__dirname + "/pages/" + "COO0001_123.html");
 });
 
-// ********** POST ROUTES FOR MULTIPLE TRANSACTION UPDATES ********** //
-
-// ********** PERMANODE LIVENET ********** //
-
 // MAM post route for ordLAG0001.html (Initiate Order, Confirm Items (9 / 1 community), Confirm Items Completed) 
 app.post('/LAG0001_123', urlencodedParser, function(req, res){
-  const Mam = require('@iota/mam')
+  const Mam = require('./lib/mam.client.js')
   const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
-  
-  // Dev
-  const provider = 'https://nodes.devnet.iota.org'
-  const mamExplorerLink = 'https://devnet.thetangle.org/mam/'
-  
-  // Live
-  // const provider = config.provider
-  // const provider = 'https://nodes.thetangle.org:443'
-  // const mamExplorerLink = 'https://thetangle.org/mam/'
+  // const provider = 'https://nodes.devnet.iota.org'
+  // const iota = composeAPI({provider: config.provider});
+  const mamExplorerLink = `https://devnet.thetangle.org/mam/`
+  // var asyncLoop = require('node-async-loop');
 
   // Update to change number of resItems from Excel HTML Template
   // Dates respond to number of communities, resItems to number of Items in Order
@@ -74,9 +65,9 @@ app.post('/LAG0001_123', urlencodedParser, function(req, res){
   console.log('Publishing LAG0001 Records...!');
 
   const seed = response.seed;
-  console.log('HTML Seed: ', seed)
-  let mamState = Mam.init(provider)
-  // let mamState = Mam.init(provider, seed)
+  console.log('HTML Seed: ', seed);
+  //let mamState = Mam.init(provider, seed)
+  let mamState = Mam.init(config.provider, seed)
   console.log('mamState: ', mamState); 
 
   // Publish to tangle
@@ -140,12 +131,12 @@ app.post('/LAG0001_123', urlencodedParser, function(req, res){
       });    // Brand Order Finalised SS1
     await publish({
       status: response.resStatusBrand+" "+response.resOrderNo+" by "+response.resVerByBrand+", "+response.resLocBrand,
-      verification: response.resVerByBrand+", "+response.resLocBrand+" at 12/20/2019, 06:22:12 PM",
+      verification: response.resVerByBrand+", "+response.resLocBrand+" at 20/12/2019, 06:22:12 PM",
     });
         // ROF Finalise (as items already arrived)
     await publish({
       status: response.resStatusROFReceived+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
-      verification: response.resVerByROF+", "+response.resLocROF+" at 01/09/2020, 09:15:07 PM"
+      verification: response.resVerByROF+", "+response.resLocROF+" at 09/01/2020, 09:15:07 PM"
     });
 
     return root
@@ -221,6 +212,8 @@ app.post('/COO0001_123', urlencodedParser, function(req, res){
   // let mamState = Mam.init(provider, seed)
   console.log('mamState: ', mamState); 
 
+
+
   // Publish to tangle
   const publish = async packet => {
     // Create MAM Payload - STRING OF TRYTES
@@ -241,9 +234,8 @@ app.post('/COO0001_123', urlencodedParser, function(req, res){
   const publishAll = async () => {    
     const root = await publish({
       status: response.resStatusROF+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
-      verification: response.resVerByROF+", "+response.resLocROF+" at 10/10/2019, 10:00:54 AM"
+      verification: response.resVerByROF+", "+response.resLocROF+" at 09/12/2019, 11:30:30 AM"
     });
-    // FOR LAG enter as 15/12/2019
     await publish({
       status: response.resStatusArt+": "+response.resItem1+" (Quantity "+response.resQuant1+") by "+response.resArt1+", "+response.resCom1,
       verification: response.resVerByBrand+", "+response.resLocBrand+" at "+response.resMonth1+"/"+response.resDay1+"/"+response.resYear1
@@ -310,12 +302,12 @@ app.post('/COO0001_123', urlencodedParser, function(req, res){
         });   // Brand Order Finalised SS1
     await publish({
       status: response.resStatusBrand+" "+response.resOrderNo+" by "+response.resVerByBrand+", "+response.resLocBrand,
-      verification: response.resVerByBrand+", "+response.resLocBrand+" at 12/20/2019, 06:22:12 PM",
+      verification: response.resVerByBrand+", "+response.resLocBrand+" at 10/19/2019, 06:22:12 PM",
     });
         // ROF Finalise (as items already arrived)
     await publish({
       status: response.resStatusROFReceived+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
-      verification: response.resVerByROF+", "+response.resLocROF+" at 01/09/2020, 09:15:07 PM"
+      verification: response.resVerByROF+", "+response.resLocROF+" at 11/25/2020, 11:27:19 AM"
     });
 
     return root
@@ -343,13 +335,12 @@ app.post('/COO0001_123', urlencodedParser, function(req, res){
 
 // MAM post route for ordSXA0001.html (Initiate Order, Confirm Items (24 / 7 community), Confirm Items Completed)       
 app.post('/ONO0001_123', urlencodedParser, function(req, res){
-  const Mam = require('./mam.client.js/lib/mam.client.js')
+  const Mam = require('./lib/mam.client.js')
   const { composeAPI } = require('@iota/core');
   const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
   // const provider = 'https://nodes.devnet.iota.org'
-  const iota = composeAPI({provider: config.provider});
+  // const iota = composeAPI({provider: config.provider});
   const mamExplorerLink = `https://thetangle.org/mam/`
-  // const seed = 'LQUNUKSOHUAX9PP9JKVRKGQOWOWRJIJLMAYHWQSGAIEIVKMGG9VFJARFI9PYUQISYIMGRYQHOAMACQLTT'
   // var asyncLoop = require('node-async-loop');
 
   // Update to change number of resItems from Excel HTML Template
@@ -524,7 +515,12 @@ console.log('Publishing ONO0001 Records...');
     // Brand Order Finalised
     await publish({
       status: response.resStatusBrand+" "+response.resOrderNo+" by "+response.resVerByBrand+", "+response.resLocBrand,
-      verification: response.resVerByBrand+", "+response.resLocBrand+" at "+(new Date()).toLocaleString(),
+      verification: response.resVerByBrand+", "+response.resLocBrand+" at 05/11/2019, 03:40:10 PM",
+    });
+    // ROF Finalise (as items already arrived)
+    await publish({
+      status: response.resStatusROFReceived+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
+      verification: response.resVerByROF+", "+response.resLocROF+" at 08/11/2019, 09:45:10 AM"
     });
 
     return root
@@ -552,7 +548,7 @@ console.log('Publishing ONO0001 Records...');
 
 // MAM post route for ordSXA0001.html (Initiate Order, Confirm Items (34 / 1 community), Confirm Items Completed)   
 app.post('/SXA0001_123', urlencodedParser, function(req, res){
-  const Mam = require('./mam.client.js/lib/mam.client.js')
+  const Mam = require('./lib/mam.client.js');
   const { composeAPI } = require('@iota/core');
   const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
   // const provider = 'https://nodes.devnet.iota.org'
@@ -805,7 +801,7 @@ console.log('Publishing SXA0001 Records...');
 
 // MAM post route for ordARU0001.html (Initiate Order, Confirm Items (18 / 2 community), Confirm Items Completed)   
 app.post('/ARU0001_123', urlencodedParser, function(req, res){
-  const Mam = require('./mam.client.js/lib/mam.client.js')
+  const Mam = require('./lib/mam.client.js')
   const { composeAPI } = require('@iota/core');
   const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
   const iota = composeAPI({provider: config.provider});
@@ -972,15 +968,14 @@ app.post('/ARU0001_123', urlencodedParser, function(req, res){
     res.sendFile(__dirname + "/pages/" + "UpdateCompleted.html");  
   }); 
 
-// ********** DEVNET EXAMPLE OLD ********** //
-
 // MAM post route for ordACP0001.html (Initiate Order, Confirm Items (38 / 1 community), Confirm Items Completed)  
 app.post('/ACP0001_123', urlencodedParser, function(req, res){
-  const Mam = require('./mam.client.js/lib/mam.client.js')
+  const Mam = require('./lib/mam.client.js')
   const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
-  const provider = 'https://nodes.devnet.iota.org'
-  
+  // const provider = 'https://nodes.devnet.iota.org'
+  // const iota = composeAPI({provider: config.provider});
   const mamExplorerLink = `https://devnet.thetangle.org/mam/`
+  // var asyncLoop = require('node-async-loop');
 
   // Update to change number of resItems from Excel HTML Template
   // Dates respond to number of communities, resItems to number of Items in Order
@@ -1030,13 +1025,13 @@ app.post('/ACP0001_123', urlencodedParser, function(req, res){
       resItem38: req.body.item38, resQuant38: req.body.quant38, resArt38: req.body.art38, resCom38: req.body.com38,
       resMonth1: new Date(req.body.date1).getMonth()+1, resDay1: new Date(req.body.date1).getDate(), resYear1: new Date(req.body.date1).getFullYear(),
   };
-  // console.log(response);
+  console.log('Publishing ACP0001 Records...!');
 
-  const seed = response.seed
-  console.log('Seed: ', seed)
-
-  let mamState = Mam.init(provider, seed)
-  console.log('mamState: ', mamState) 
+  const seed = response.seed;
+  console.log('HTML Seed: ', seed);
+  //let mamState = Mam.init(provider, seed)
+  let mamState = Mam.init(config.provider, seed)
+  console.log('mamState: ', mamState); 
 
   // Publish to tangle
   const publish = async packet => {
@@ -1058,7 +1053,7 @@ app.post('/ACP0001_123', urlencodedParser, function(req, res){
   const publishAll = async () => {
     const root = await publish({
       status: response.resStatusROF+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
-      verification: response.resVerByROF+", "+response.resLocROF+" at 26/09/2019, 02:32:40 PM"
+      verification: response.resVerByROF+", "+response.resLocROF+" at 09//2019, 02:32:40 PM"
     });
     // Added early record in case crashes...
     console.log(`Verify with MAM Explorer:\n${mamExplorerLink}${root}\n`);  
@@ -1218,9 +1213,13 @@ app.post('/ACP0001_123', urlencodedParser, function(req, res){
     // Brand Order Finalised
     await publish({
       status: response.resStatusBrand+" "+response.resOrderNo+" by "+response.resVerByBrand+", "+response.resLocBrand,
-      verification: response.resVerByBrand+", "+response.resLocBrand+" at "+(new Date()).toLocaleString(),
+      verification: response.resVerByBrand+", "+response.resLocBrand+" at 11/28/2019, 08:46:40 PM"
     });
-
+    // ROF Finalise (as items already arrived)
+    await publish({
+      status: response.resStatusROFReceived+" "+response.resOrderNo+" by "+response.resVerByROF+", "+response.resLocROF,
+      verification: response.resVerByROF+", "+response.resLocROF+" at 12/10/2019, 04:15:12 PM"
+    });
     return root
     }
   

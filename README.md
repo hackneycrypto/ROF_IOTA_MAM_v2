@@ -1,6 +1,6 @@
 
 # INSTRUCTIONS
-This repo was created from IOTA MAM CLient JS library - See below. See instructions/notes.md for other instructions.
+This repo was created from IOTA MAM CLient JS library - See below. SEE INSTRUCTIONS/NOTED.MD for other instructions.
 
 ## MAM Client JS Library - TANGLE.FANS EDITION
 
